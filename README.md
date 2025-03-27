@@ -18,29 +18,26 @@ playwright install
 
 ## Chạy test
 
-### Cách 1: Chạy test đơn giản
-
-Chạy file test đơn giản (khuyên dùng cho người mới bắt đầu):
+### Cách 1: Chạy test với auto (Không custom được số lượng cửa sổ browser)
 
 ```bash
-python simple_test.py
+python -m pytest -v -n auto
 ```
 
-### Cách 2: Chạy test với pytest
+### Cách 2: Chạy test với custom số lượng cửa sổ browser
 
 ```bash
-# Chạy tất cả các test
-pytest
+# Có thể thay số lượng số cửa sổ mong muốn
+python -m pytest -v -n 4
 
 # Chạy test cụ thể
-pytest tests/thegioididong/test_homepage.py
+pytest tests/thegioididong/test_search_advanced.py
 
 # Chạy test cụ thể với hiển thị trình duyệt
-pytest tests/thegioididong/test_homepage.py --headed
+pytest tests/thegioididong/test_search_page.py --headed
 ```
 
 ## Lưu ý
 
 - Nếu gặp lỗi, hãy kiểm tra selectors có phù hợp với cấu trúc hiện tại của trang web không
 - Thời gian timeout được thiết lập khá dài (60s) để đảm bảo trang web có đủ thời gian tải
-- File `simple_test.py` là file đơn giản nhất để kiểm tra Playwright đã hoạt động đúng chưa
